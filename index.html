@@ -3,645 +3,455 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Muhammed Rayan MK — Official Website</title>
-  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Merriweather:ital,wght@0,300;0,400;1,300&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
+  <title>Muhammed Rayan MK</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --black: #0f0f0f;
-      --dark: #1a1a1a;
-      --darker: #141414;
-      --white: #f4f0e8;
-      --gold: #c9a84c;
-      --gold-light: #e0bc6a;
-      --muted: rgba(244,240,232,0.5);
-      --border: rgba(244,240,232,0.1);
-      --card-bg: #181818;
+      --black: #0a0a0a;
+      --white: #f2ede8;
+      --warm: #e8e0d5;
+      --accent: #c8b89a;
+      --muted: rgba(242,237,232,0.45);
+      --border: rgba(242,237,232,0.1);
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
+
     body {
       background: var(--black);
       color: var(--white);
-      font-family: 'Source Sans 3', sans-serif;
+      font-family: 'Montserrat', sans-serif;
       font-weight: 300;
-    }
-
-    /* ── TOP BAR ── */
-    .top-strip {
-      background: var(--gold);
-      text-align: center;
-      padding: 7px;
-      font-family: 'Oswald', sans-serif;
-      font-size: 0.7rem;
-      letter-spacing: 0.3em;
-      color: var(--black);
-      font-weight: 500;
+      overflow-x: hidden;
     }
 
     /* ── NAV ── */
     nav {
-      background: var(--darker);
-      border-bottom: 2px solid var(--gold);
-      padding: 0 60px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 64px;
-      position: sticky;
-      top: 0;
-      z-index: 100;
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 28px 52px;
+      mix-blend-mode: normal;
+      background: transparent;
+      transition: background 0.4s;
     }
-    .nav-brand {
-      font-family: 'Oswald', sans-serif;
-      font-size: 1.35rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      color: var(--white);
-      text-decoration: none;
+    nav.scrolled { background: rgba(10,10,10,0.95); backdrop-filter: blur(10px); }
+    .nav-logo {
+      font-family: 'EB Garamond', serif;
+      font-size: 1.3rem; font-weight: 400; letter-spacing: 0.06em;
+      color: var(--white); text-decoration: none;
     }
-    .nav-brand span { color: var(--gold); }
-    .nav-links {
-      display: flex; gap: 0; list-style: none;
-    }
+    .nav-links { display: flex; gap: 36px; list-style: none; }
     .nav-links a {
-      font-family: 'Oswald', sans-serif;
-      font-size: 0.8rem;
-      font-weight: 400;
-      letter-spacing: 0.15em;
-      color: rgba(244,240,232,0.7);
-      text-decoration: none;
-      padding: 0 22px;
-      height: 64px;
-      display: flex; align-items: center;
-      border-right: 1px solid var(--border);
-      transition: color 0.2s, background 0.2s;
+      font-size: 0.65rem; font-weight: 500; letter-spacing: 0.22em;
+      text-transform: uppercase; color: var(--muted); text-decoration: none;
+      transition: color 0.3s;
     }
-    .nav-links li:first-child a { border-left: 1px solid var(--border); }
-    .nav-links a:hover { color: var(--gold); background: rgba(201,168,76,0.06); }
+    .nav-links a:hover { color: var(--white); }
 
     /* ── HERO ── */
-    #hero {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      min-height: 88vh;
-      position: relative;
-      overflow: hidden;
-    }
-    .hero-left {
-      background: linear-gradient(160deg, #1a1500 0%, #0f0f0f 60%);
+    #home {
+      height: 100vh;
       display: flex; flex-direction: column;
-      justify-content: center;
-      padding: 80px 60px 80px 60px;
-      position: relative;
-      z-index: 2;
+      justify-content: flex-end; align-items: center;
+      position: relative; overflow: hidden;
+      padding-bottom: 80px;
     }
-    .hero-left::after {
-      content: '';
-      position: absolute;
-      right: 0; top: 0; bottom: 0;
-      width: 4px;
-      background: linear-gradient(to bottom, transparent, var(--gold), transparent);
+
+    /* Full-bleed image with overlay — replace bg-placeholder with your photo */
+    .hero-image {
+      position: absolute; inset: 0;
+      background:
+        linear-gradient(to bottom, rgba(10,10,10,0.15) 0%, rgba(10,10,10,0.0) 40%, rgba(10,10,10,0.55) 80%, rgba(10,10,10,0.92) 100%),
+        url('1.png') center center / cover no-repeat;
+      /* ↑ Replace '1.png' with your actual photo filename */
     }
-    .hero-eyebrow {
-      font-family: 'Oswald', sans-serif;
-      font-size: 0.72rem;
-      letter-spacing: 0.35em;
-      color: var(--gold);
-      margin-bottom: 20px;
-      font-weight: 400;
-      opacity: 0; animation: fadeUp 0.8s 0.2s forwards;
+    /* Fallback gradient if no image */
+    .hero-image-fallback {
+      position: absolute; inset: 0;
+      background: linear-gradient(160deg, #1a1a1a 0%, #0f0f0f 40%, #141414 100%);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .hero-image-fallback p {
+      font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase;
+      color: rgba(242,237,232,0.15);
+    }
+
+    /* Grain overlay */
+    .grain {
+      position: absolute; inset: 0; pointer-events: none; z-index: 1;
+      opacity: 0.045;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+      background-size: 200px;
+    }
+
+    .hero-text {
+      position: relative; z-index: 2;
+      text-align: center;
     }
     .hero-name {
-      font-family: 'Oswald', sans-serif;
-      font-size: clamp(44px, 5.5vw, 72px);
-      font-weight: 700;
-      line-height: 1.05;
-      letter-spacing: 0.03em;
+      font-family: 'EB Garamond', serif;
+      font-size: clamp(60px, 13vw, 160px);
+      font-weight: 400; letter-spacing: -0.01em; line-height: 0.95;
       color: var(--white);
-      opacity: 0; animation: fadeUp 0.8s 0.4s forwards;
+      opacity: 0; animation: fadeUp 1.2s 0.3s cubic-bezier(0.16,1,0.3,1) forwards;
     }
-    .hero-name span { color: var(--gold); display: block; }
-    .hero-rule {
-      width: 80px; height: 3px;
-      background: var(--gold);
-      margin: 28px 0;
-      opacity: 0; animation: fadeUp 0.8s 0.55s forwards;
+    .hero-sub {
+      font-size: 0.68rem; font-weight: 500; letter-spacing: 0.32em;
+      text-transform: uppercase; color: var(--accent);
+      margin-top: 18px;
+      opacity: 0; animation: fadeUp 1s 0.7s ease forwards;
     }
-    .hero-desc {
-      font-family: 'Merriweather', serif;
-      font-size: 1rem;
-      font-weight: 300;
-      font-style: italic;
-      line-height: 1.9;
+
+    /* ── SCROLL INDICATOR ── */
+    .scroll-hint {
+      position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%);
+      z-index: 2; display: flex; flex-direction: column; align-items: center; gap: 8px;
+      opacity: 0; animation: fadeIn 1s 1.4s forwards;
+    }
+    .scroll-hint span {
+      font-size: 0.6rem; letter-spacing: 0.25em; text-transform: uppercase;
       color: var(--muted);
-      max-width: 460px;
-      opacity: 0; animation: fadeUp 0.8s 0.7s forwards;
     }
-    .hero-btns {
-      margin-top: 40px; display: flex; gap: 14px;
-      opacity: 0; animation: fadeUp 0.8s 0.85s forwards;
+    .scroll-line {
+      width: 1px; height: 40px;
+      background: linear-gradient(to bottom, var(--accent), transparent);
+      animation: scrollPulse 2s 1.6s infinite;
     }
-    .btn-primary {
-      background: var(--gold);
-      color: var(--black);
-      font-family: 'Oswald', sans-serif;
-      font-size: 0.78rem;
-      font-weight: 600;
-      letter-spacing: 0.2em;
-      padding: 13px 32px;
-      text-decoration: none;
-      transition: background 0.2s, transform 0.2s;
-    }
-    .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
-    .btn-secondary {
-      border: 1px solid rgba(201,168,76,0.4);
-      color: var(--gold);
-      font-family: 'Oswald', sans-serif;
-      font-size: 0.78rem;
-      font-weight: 400;
-      letter-spacing: 0.2em;
-      padding: 13px 32px;
-      text-decoration: none;
-      transition: border-color 0.2s, background 0.2s;
-    }
-    .btn-secondary:hover { border-color: var(--gold); background: rgba(201,168,76,0.08); }
-
-    .hero-right {
-      position: relative; overflow: hidden;
-      background: #0a0a0a;
-    }
-    .hero-photo-placeholder {
-      width: 100%; height: 100%;
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: center;
-      gap: 16px;
-      background: linear-gradient(135deg, #181400 0%, #0f0f0f 100%);
-    }
-    /* Uncomment and set src to use a real photo:
-    .hero-photo { width: 100%; height: 100%; object-fit: cover; object-position: top; filter: grayscale(15%); display: block; } */
-    .hero-photo-placeholder svg { opacity: 0.15; }
-    .hero-photo-placeholder p {
-      font-family: 'Oswald', sans-serif;
-      font-size: 0.65rem; letter-spacing: 0.2em;
-      color: rgba(201,168,76,0.3);
-    }
-    .hero-badge {
-      position: absolute; bottom: 32px; left: 32px;
-      background: var(--gold);
-      color: var(--black);
-      font-family: 'Oswald', sans-serif;
-      font-size: 0.65rem; letter-spacing: 0.2em;
-      font-weight: 600; padding: 8px 18px;
+    @keyframes scrollPulse {
+      0%, 100% { opacity: 0.4; transform: scaleY(1); }
+      50% { opacity: 1; transform: scaleY(1.2); }
     }
 
-    /* ── SECTION LABEL ── */
-    .section-label {
-      display: flex; align-items: center; gap: 16px;
-      margin-bottom: 48px;
+    /* ── SECTION BASE ── */
+    section { padding: 100px 52px; }
+
+    .section-eyebrow {
+      font-size: 0.62rem; font-weight: 500; letter-spacing: 0.3em;
+      text-transform: uppercase; color: var(--accent);
+      margin-bottom: 20px;
     }
-    .section-label-text {
-      font-family: 'Oswald', sans-serif;
-      font-size: 0.7rem; font-weight: 500;
-      letter-spacing: 0.3em; color: var(--gold);
-    }
-    .section-label-line {
-      flex: 1; height: 1px;
-      background: linear-gradient(to right, rgba(201,168,76,0.4), transparent);
-    }
-    .section-title {
-      font-family: 'Oswald', sans-serif;
-      font-size: clamp(30px, 4vw, 48px);
-      font-weight: 700;
-      letter-spacing: 0.04em;
-      line-height: 1.1;
-      margin-bottom: 32px;
+    .section-heading {
+      font-family: 'EB Garamond', serif;
+      font-size: clamp(36px, 6vw, 72px);
+      font-weight: 400; letter-spacing: -0.01em; line-height: 1.05;
+      color: var(--white); margin-bottom: 48px;
     }
 
     /* ── ABOUT ── */
     #about {
-      padding: 90px 60px;
-      background: var(--darker);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px; align-items: start;
       border-top: 1px solid var(--border);
     }
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 70px; align-items: start;
+
+    .about-left { position: relative; }
+
+    /* Image box with hover parallax effect */
+    .about-img-wrap {
+      position: relative; overflow: hidden;
+      aspect-ratio: 3/4;
+      background: #181818;
     }
+    .about-img-wrap img {
+      width: 100%; height: 100%;
+      object-fit: cover; display: block;
+      transition: transform 0.8s cubic-bezier(0.16,1,0.3,1);
+      filter: grayscale(20%) contrast(1.05);
+    }
+    .about-img-wrap:hover img { transform: scale(1.04); }
+    /* Placeholder if no image */
+    .about-img-placeholder {
+      width: 100%; height: 100%;
+      background: linear-gradient(160deg, #181818, #121212);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center; gap: 14px;
+    }
+    .about-img-placeholder svg { opacity: 0.15; }
+    .about-img-placeholder p {
+      font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase;
+      color: rgba(242,237,232,0.2);
+    }
+
+    /* Floating caption */
+    .about-img-caption {
+      position: absolute; bottom: -1px; left: 0; right: 0;
+      padding: 20px 24px;
+      background: linear-gradient(to top, rgba(10,10,10,0.9), transparent);
+    }
+    .about-img-caption p {
+      font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .about-right { padding-top: 12px; }
+
     .about-bio p {
-      font-family: 'Merriweather', serif;
-      font-size: 0.98rem;
-      line-height: 2;
-      color: rgba(244,240,232,0.72);
-      margin-bottom: 20px;
+      font-family: 'EB Garamond', serif;
+      font-size: 1.25rem; line-height: 1.85;
+      color: rgba(242,237,232,0.7);
+      margin-bottom: 24px;
     }
-    .about-bio p strong { color: var(--white); font-weight: 400; }
-    .about-bio p em { color: var(--gold); font-style: italic; }
+    .about-bio p:last-child { margin-bottom: 0; }
+    .about-bio p strong { color: var(--white); font-weight: 500; }
+    .about-bio p em { color: var(--accent); font-style: italic; }
 
-    .about-info-box {
-      border: 1px solid var(--border);
-      border-top: 3px solid var(--gold);
-      background: var(--card-bg);
+    /* Info table */
+    .about-info {
+      margin-top: 52px;
+      border-top: 1px solid var(--border);
     }
-    .info-row {
-      display: flex;
+    .about-info-row {
+      display: flex; padding: 18px 0;
       border-bottom: 1px solid var(--border);
-      padding: 0;
+      gap: 24px;
     }
-    .info-row:last-child { border-bottom: none; }
-    .info-key {
-      font-family: 'Oswald', sans-serif;
-      font-size: 0.65rem; letter-spacing: 0.2em;
-      color: var(--gold); font-weight: 500;
-      padding: 16px 20px;
-      min-width: 120px;
-      border-right: 1px solid var(--border);
-      display: flex; align-items: center;
-      background: rgba(201,168,76,0.04);
+    .about-info-label {
+      font-size: 0.6rem; font-weight: 600; letter-spacing: 0.22em;
+      text-transform: uppercase; color: var(--accent);
+      min-width: 120px; padding-top: 2px;
     }
-    .info-val {
-      font-family: 'Source Sans 3', sans-serif;
-      font-size: 0.92rem;
-      color: var(--white);
-      padding: 16px 20px;
-      display: flex; align-items: center;
+    .about-info-value {
+      font-family: 'EB Garamond', serif;
+      font-size: 1.05rem; color: var(--white); line-height: 1.5;
     }
-
-    /* ── CARDS SECTION ── */
-    #highlights {
-      padding: 90px 60px;
-      background: var(--black);
-    }
-    .cards-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2px;
-    }
-    .card {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      overflow: hidden;
-      position: relative;
-      transition: border-color 0.3s;
-      text-decoration: none;
-      display: block;
-    }
-    .card:hover { border-color: rgba(201,168,76,0.5); }
-    .card-img {
-      width: 100%; height: 200px;
-      background: linear-gradient(135deg, #1a1500, #111);
-      display: flex; align-items: center; justify-content: center;
-      overflow: hidden; position: relative;
-    }
-    .card-img-icon {
-      font-size: 3rem; opacity: 0.15;
-    }
-    .card-img-label {
-      position: absolute; bottom: 0; left: 0; right: 0;
-      background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
-      padding: 20px 20px 12px;
-    }
-    .card-img-label span {
-      font-family: 'Oswald', sans-serif;
-      font-size: 0.6rem; letter-spacing: 0.25em;
-      color: var(--gold); font-weight: 500;
-    }
-    .card-body { padding: 24px 24px 28px; }
-    .card-title {
-      font-family: 'Oswald', sans-serif;
-      font-size: 1.15rem; font-weight: 600;
-      letter-spacing: 0.04em;
-      color: var(--white); margin-bottom: 10px;
-      transition: color 0.2s;
-    }
-    .card:hover .card-title { color: var(--gold); }
-    .card-desc {
-      font-family: 'Merriweather', serif;
-      font-size: 0.85rem; line-height: 1.8;
-      color: var(--muted); font-weight: 300;
-    }
-    .card-arrow {
-      position: absolute; bottom: 20px; right: 20px;
-      font-family: 'Oswald', sans-serif;
-      font-size: 0.65rem; letter-spacing: 0.15em;
-      color: var(--gold); opacity: 0;
-      transition: opacity 0.2s;
-    }
-    .card:hover .card-arrow { opacity: 1; }
 
     /* ── CONTACT ── */
     #contact {
-      padding: 90px 60px;
-      background: var(--darker);
       border-top: 1px solid var(--border);
-    }
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 60px; align-items: start;
-    }
-    .contact-desc {
-      font-family: 'Merriweather', serif;
-      font-size: 1rem; line-height: 1.9;
-      color: var(--muted); font-style: italic;
-      margin-bottom: 40px;
-    }
-    .contact-links { display: flex; flex-direction: column; gap: 0; }
-    .contact-link {
-      display: flex; align-items: center;
-      padding: 18px 0;
-      border-bottom: 1px solid var(--border);
-      text-decoration: none;
-      transition: background 0.2s;
-      gap: 20px;
-    }
-    .contact-link:first-child { border-top: 1px solid var(--border); }
-    .contact-link:hover .c-label { color: var(--gold); }
-    .c-tag {
-      font-family: 'Oswald', sans-serif;
-      font-size: 0.6rem; letter-spacing: 0.2em;
-      color: var(--gold); font-weight: 500;
-      min-width: 80px; opacity: 0.8;
-    }
-    .c-label {
-      font-family: 'Source Sans 3', sans-serif;
-      font-size: 0.95rem; color: var(--white);
-      transition: color 0.2s;
-    }
-    .c-arrow { margin-left: auto; color: var(--gold); opacity: 0.5; font-size: 0.8rem; }
-
-    .contact-map-placeholder {
-      border: 1px solid var(--border);
-      border-top: 3px solid var(--gold);
-      background: var(--card-bg);
-      padding: 48px 36px;
       text-align: center;
     }
-    .contact-map-placeholder h3 {
-      font-family: 'Oswald', sans-serif;
-      font-size: 1.4rem; font-weight: 600;
-      letter-spacing: 0.06em; color: var(--white);
-      margin-bottom: 10px;
+    .contact-big {
+      font-family: 'EB Garamond', serif;
+      font-size: clamp(48px, 10vw, 120px);
+      font-weight: 400; letter-spacing: -0.02em; line-height: 0.95;
+      color: var(--white); margin-bottom: 60px;
     }
-    .contact-map-placeholder p {
-      font-family: 'Merriweather', serif;
-      font-size: 0.85rem; color: var(--muted);
-      line-height: 1.8; font-style: italic;
+    .contact-cards {
+      display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;
+      margin-bottom: 80px;
     }
-    .contact-map-placeholder .location-tag {
-      display: inline-block;
-      margin-top: 24px;
-      background: rgba(201,168,76,0.1);
-      border: 1px solid rgba(201,168,76,0.3);
-      color: var(--gold);
-      font-family: 'Oswald', sans-serif;
-      font-size: 0.68rem; letter-spacing: 0.2em;
-      padding: 8px 20px;
+    .contact-link {
+      display: flex; flex-direction: column; align-items: center; gap: 14px;
+      border: 1px solid var(--border); padding: 36px 48px;
+      text-decoration: none; min-width: 220px;
+      transition: border-color 0.3s, background 0.3s, transform 0.3s;
+      background: rgba(255,255,255,0.02);
+    }
+    .contact-link:hover {
+      border-color: var(--accent);
+      background: rgba(200,184,154,0.05);
+      transform: translateY(-4px);
+    }
+    .contact-link svg { stroke: var(--accent); opacity: 0.8; }
+    .contact-link-label {
+      font-size: 0.6rem; font-weight: 600; letter-spacing: 0.24em;
+      text-transform: uppercase; color: var(--accent); opacity: 0.65;
+    }
+    .contact-link-value {
+      font-family: 'EB Garamond', serif;
+      font-size: 1.05rem; color: var(--white);
     }
 
     /* ── FOOTER ── */
     footer {
-      background: #080808;
-      border-top: 2px solid var(--gold);
-      padding: 28px 60px;
+      border-top: 1px solid var(--border);
+      padding: 32px 52px;
       display: flex; justify-content: space-between; align-items: center;
     }
     footer p {
-      font-family: 'Oswald', sans-serif;
-      font-size: 0.65rem; letter-spacing: 0.2em;
-      color: rgba(244,240,232,0.25); font-weight: 300;
+      font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase;
+      color: rgba(242,237,232,0.2);
     }
-    .footer-brand {
-      font-family: 'Oswald', sans-serif;
-      font-size: 1rem; font-weight: 700;
-      letter-spacing: 0.1em; color: var(--gold);
-      opacity: 0.6;
+    .footer-name {
+      font-family: 'EB Garamond', serif;
+      font-size: 1.1rem; color: rgba(242,237,232,0.2); letter-spacing: 0.06em;
     }
 
     /* ── ANIMATIONS ── */
     @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(24px); }
+      from { opacity: 0; transform: translateY(40px); }
       to   { opacity: 1; transform: translateY(0); }
     }
+    @keyframes fadeIn {
+      from { opacity: 0; } to { opacity: 1; }
+    }
     .reveal {
-      opacity: 0; transform: translateY(32px);
-      transition: opacity 0.8s ease, transform 0.8s ease;
+      opacity: 0; transform: translateY(40px);
+      transition: opacity 1s cubic-bezier(0.16,1,0.3,1), transform 1s cubic-bezier(0.16,1,0.3,1);
     }
     .reveal.visible { opacity: 1; transform: translateY(0); }
     .reveal-d1 { transition-delay: 0.1s; }
-    .reveal-d2 { transition-delay: 0.2s; }
-    .reveal-d3 { transition-delay: 0.3s; }
+    .reveal-d2 { transition-delay: 0.22s; }
+    .reveal-d3 { transition-delay: 0.34s; }
 
     /* ── RESPONSIVE ── */
-    @media (max-width: 900px) {
-      nav { padding: 0 24px; }
+    @media (max-width: 860px) {
+      nav { padding: 20px 24px; }
       .nav-links { display: none; }
-      #hero { grid-template-columns: 1fr; }
-      .hero-left { padding: 60px 28px; }
-      .hero-right { height: 300px; }
-      #about, #highlights, #contact { padding: 70px 28px; }
-      .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 40px; }
-      .cards-grid { grid-template-columns: 1fr; }
+      section { padding: 72px 24px; }
+      #about { grid-template-columns: 1fr; gap: 40px; }
+      .contact-cards { flex-direction: column; align-items: center; }
       footer { flex-direction: column; gap: 12px; text-align: center; }
     }
   </style>
 </head>
 <body>
 
-  <div class="top-strip">MUHAMMED RAYAN MK — OFFICIAL PERSONAL WEBSITE</div>
-
-  <nav>
-    <a href="#hero" class="nav-brand">RAYAN <span>MK</span></a>
+  <!-- Nav -->
+  <nav id="nav">
+    <a href="#home" class="nav-logo">Muhammed Rayan MK</a>
     <ul class="nav-links">
-      <li><a href="#hero">Home</a></li>
+      <li><a href="#home">Home</a></li>
       <li><a href="#about">About</a></li>
-      <li><a href="#highlights">Highlights</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
 
-  <!-- HERO -->
-  <section id="hero">
-    <div class="hero-left">
-      <p class="hero-eyebrow">Official Personal Website</p>
-      <h1 class="hero-name">
-        Muhammed<br>Rayan MK
-        <span>Student</span>
-      </h1>
-      <div class="hero-rule"></div>
-      <p class="hero-desc">
-        A passionate student from Malappuram, Kerala — exploring the worlds of gaming, digital marketing, social media, and software. Always building, always learning.
-      </p>
-      <div class="hero-btns">
-        <a href="#about" class="btn-primary">About Me</a>
-        <a href="#contact" class="btn-secondary">Contact</a>
-      </div>
+  <!-- Hero / Home -->
+  <section id="home">
+    <!-- Replace the fallback below with: <div class="hero-image"></div> once you add your photo as 1.png -->
+    <div class="hero-image-fallback">
+      <p>Add your photo as 1.png to see full image effect</p>
     </div>
-    <div class="hero-right">
-      <!-- Replace this block with your photo:
-      <img src="1.png" alt="Muhammed Rayan MK" class="hero-photo"> -->
-      <div class="hero-photo-placeholder">
-        <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="0.8">
-          <circle cx="12" cy="8" r="5"/>
-          <path d="M3 21c0-5 4-9 9-9s9 4 9 9"/>
-        </svg>
-        <p>PLACE YOUR PHOTO HERE</p>
-      </div>
-      <div class="hero-badge">MALAPPURAM · KERALA · INDIA</div>
+    <div class="grain"></div>
+
+    <div class="hero-text">
+      <h1 class="hero-name">Muhammed<br>Rayan MK</h1>
+      <p class="hero-sub">Student &nbsp;·&nbsp; Malappuram, Kerala</p>
+    </div>
+
+    <div class="scroll-hint">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
     </div>
   </section>
 
-  <!-- ABOUT -->
+  <!-- About -->
   <section id="about">
-    <div class="section-label reveal">
-      <span class="section-label-text">WHO IS MUHAMMED RAYAN MK</span>
-      <div class="section-label-line"></div>
-    </div>
-    <div class="about-grid">
-      <div class="about-bio reveal">
-        <h2 class="section-title">About Me</h2>
-        <p>
-          Hey! I'm <strong>Muhammed Rayan MK</strong> — a +1 student at <strong>Marthoma Higher Secondary School</strong>, Malappuram, currently in the Batch of 2023–2025. I'm someone who likes to keep things real and stay curious about the world around me.
-        </p>
-        <p>
-          I'm deeply into <em>gaming, social media, digital marketing, and digital advertising</em>. I love understanding how content works, how brands grow online, and how technology shapes the way we communicate and connect.
-        </p>
-        <p>
-          I also have a strong interest in <strong>software</strong> — how it's built, how it solves problems, and how it changes industries. That curiosity keeps pushing me to learn more every day.
-        </p>
-        <p>
-          My goal is clear — I want to <strong>build my own digital marketing agency</strong> and a <strong>software company</strong> in the future. I believe the best way to get there is by starting early, staying consistent, and never stopping to learn.
-        </p>
-      </div>
-      <div class="about-info-box reveal reveal-d2">
-        <div class="info-row">
-          <span class="info-key">Full Name</span>
-          <span class="info-val">Muhammed Rayan MK</span>
+    <div class="about-left reveal">
+      <div class="about-img-wrap">
+        <!-- Replace with: <img src="1.png" alt="Muhammed Rayan MK"> once you have your photo -->
+        <div class="about-img-placeholder">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1">
+            <circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
+          </svg>
+          <p>Your photo here</p>
         </div>
-        <div class="info-row">
-          <span class="info-key">Online</span>
-          <span class="info-val">DRIGADOX (@_drigadox_)</span>
-        </div>
-        <div class="info-row">
-          <span class="info-key">School</span>
-          <span class="info-val">Marthoma Higher Secondary School</span>
-        </div>
-        <div class="info-row">
-          <span class="info-key">Class</span>
-          <span class="info-val">Plus One (+1) · Batch 2023–2025</span>
-        </div>
-        <div class="info-row">
-          <span class="info-key">Location</span>
-          <span class="info-val">Malappuram, Kerala, India</span>
-        </div>
-        <div class="info-row">
-          <span class="info-key">Interests</span>
-          <span class="info-val">Gaming · Digital Marketing · Social Media · Software</span>
-        </div>
-        <div class="info-row">
-          <span class="info-key">Goal</span>
-          <span class="info-val">Build a Digital Marketing Agency & Software Company</span>
+        <div class="about-img-caption">
+          <p>Malappuram, Kerala · 2025</p>
         </div>
       </div>
     </div>
-  </section>
 
-  <!-- HIGHLIGHTS / CARDS -->
-  <section id="highlights">
-    <div class="section-label reveal">
-      <span class="section-label-text">WHAT DRIVES ME</span>
-      <div class="section-label-line"></div>
-    </div>
-    <div class="cards-grid">
-      <div class="card reveal reveal-d1">
-        <div class="card-img">
-          <span class="card-img-icon">🎮</span>
-          <div class="card-img-label"><span>PASSION</span></div>
-        </div>
-        <div class="card-body">
-          <h3 class="card-title">Gaming</h3>
-          <p class="card-desc">Gaming isn't just a hobby — it's where strategy, reflexes, and creativity meet. It's taught me how to think fast, stay focused, and never give up.</p>
-        </div>
-        <span class="card-arrow">READ MORE →</span>
+    <div class="about-right">
+      <p class="section-eyebrow reveal">About</p>
+      <h2 class="section-heading reveal reveal-d1">Muhammed<br>Rayan MK</h2>
+
+      <div class="about-bio reveal reveal-d2">
+        <p>
+          Hey! I'm <strong>Muhammed Rayan MK</strong>, a student at Marthoma Higher Secondary School, Malappuram — Batch 2023–2025. I'm someone who loves staying curious and constantly picking up new skills, both inside and outside the classroom.
+        </p>
+        <p>
+          I'm really into <em>gaming</em> — it's where I unwind, compete, and connect with people from all over. But I'm equally passionate about the digital world. I actively work with <em>social media</em>, create content, and dive deep into <em>digital marketing</em> and <em>digital advertising</em> to understand how brands grow online.
+        </p>
+        <p>
+          <em>Software</em> is another world I find endlessly fascinating — from exploring apps and tools to understanding how things are built behind the screen. My goal is to build a career at the intersection of <strong>technology, marketing, and creativity</strong> — making a real impact in the digital space.
+        </p>
       </div>
 
-      <div class="card reveal reveal-d2">
-        <div class="card-img">
-          <span class="card-img-icon">📲</span>
-          <div class="card-img-label"><span>EXPERTISE</span></div>
+      <div class="about-info reveal reveal-d3">
+        <div class="about-info-row">
+          <span class="about-info-label">Full Name</span>
+          <span class="about-info-value">Muhammed Rayan MK</span>
         </div>
-        <div class="card-body">
-          <h3 class="card-title">Digital Marketing & Social Media</h3>
-          <p class="card-desc">From content strategy to digital ads, I'm fascinated by how brands grow online. I actively manage social media and explore marketing tools to sharpen my skills.</p>
+        <div class="about-info-row">
+          <span class="about-info-label">School</span>
+          <span class="about-info-value">Marthoma Higher Secondary School</span>
         </div>
-        <span class="card-arrow">READ MORE →</span>
-      </div>
-
-      <div class="card reveal reveal-d3">
-        <div class="card-img">
-          <span class="card-img-icon">💻</span>
-          <div class="card-img-label"><span>AMBITION</span></div>
+        <div class="about-info-row">
+          <span class="about-info-label">Batch</span>
+          <span class="about-info-value">2023 – 2025</span>
         </div>
-        <div class="card-body">
-          <h3 class="card-title">Software & Technology</h3>
-          <p class="card-desc">The world runs on software. I want to be one of the people building it. My goal is to one day launch my own software company and digital marketing agency.</p>
+        <div class="about-info-row">
+          <span class="about-info-label">Location</span>
+          <span class="about-info-value">Malappuram, Kerala, India</span>
         </div>
-        <span class="card-arrow">READ MORE →</span>
+        <div class="about-info-row">
+          <span class="about-info-label">Interests</span>
+          <span class="about-info-value">Gaming · Social Media · Digital Marketing · Digital Ads · Software</span>
+        </div>
+        <div class="about-info-row">
+          <span class="about-info-label">Instagram</span>
+          <span class="about-info-value">@rayanmk06</span>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- CONTACT -->
+  <!-- Contact -->
   <section id="contact">
-    <div class="section-label reveal">
-      <span class="section-label-text">GET IN TOUCH</span>
-      <div class="section-label-line"></div>
-    </div>
-    <div class="contact-grid">
-      <div class="reveal">
-        <h2 class="section-title">Contact<br>Muhammed Rayan MK</h2>
-        <p class="contact-desc">
-          Whether you want to collaborate, connect, or just say hello — feel free to reach out on any of the platforms below.
-        </p>
-        <div class="contact-links">
-          <a href="https://www.instagram.com/_drigadox_/" target="_blank" class="contact-link">
-            <span class="c-tag">INSTAGRAM</span>
-            <span class="c-label">@_drigadox_</span>
-            <span class="c-arrow">↗</span>
-          </a>
-          <a href="mailto:m2rayan1906@gmail.com" class="contact-link">
-            <span class="c-tag">EMAIL</span>
-            <span class="c-label">m2rayan1906@gmail.com</span>
-            <span class="c-arrow">↗</span>
-          </a>
-          <a href="https://wa.me/917306880738" target="_blank" class="contact-link">
-            <span class="c-tag">WHATSAPP</span>
-            <span class="c-label">+91 73068 80738</span>
-            <span class="c-arrow">↗</span>
-          </a>
-        </div>
-      </div>
-      <div class="contact-map-placeholder reveal reveal-d2">
-        <h3>Malappuram</h3>
-        <p>Kerala, India<br>A city of culture, ambition,<br>and emerging talent.</p>
-        <span class="location-tag">📍 MALAPPURAM · KERALA · IN</span>
-      </div>
+    <p class="section-eyebrow reveal">Contact</p>
+    <h2 class="contact-big reveal reveal-d1">Get In<br>Touch</h2>
+
+    <div class="contact-cards reveal reveal-d2">
+      <a href="https://www.instagram.com/rayanmk06/" target="_blank" class="contact-link">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke-width="1.4">
+          <rect x="2" y="2" width="20" height="20" rx="5"/>
+          <circle cx="12" cy="12" r="4"/>
+          <circle cx="17.5" cy="6.5" r="0.9" fill="#c8b89a" stroke="none"/>
+        </svg>
+        <span class="contact-link-label">Instagram</span>
+        <span class="contact-link-value">@rayanmk06</span>
+      </a>
+      <a href="javascript:void(0)" onclick="window.location='mai'+'lto:m2rayan1906'+'@'+'gmail.com'" class="contact-link">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke-width="1.4">
+          <rect x="2" y="4" width="20" height="16" rx="2"/>
+          <path d="m22 7-10 7L2 7"/>
+        </svg>
+        <span class="contact-link-label">Email</span>
+        <span class="contact-link-value">m2rayan1906&#64;gmail.com</span>
+      </a>
+      <a href="https://wa.me/917306880738" target="_blank" class="contact-link">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke-width="1.4">
+          <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+        </svg>
+        <span class="contact-link-label">WhatsApp</span>
+        <span class="contact-link-value">+91 73068 80738</span>
+      </a>
     </div>
   </section>
 
+  <!-- Footer -->
   <footer>
-    <p>© 2025 MUHAMMED RAYAN MK — ALL RIGHTS RESERVED</p>
-    <div class="footer-brand">RAYAN MK</div>
-    <p>MALAPPURAM · KERALA · INDIA</p>
+    <p>&#169; 2025 Muhammed Rayan MK. All Rights Reserved.</p>
+    <div class="footer-name">RMK</div>
+    <p>Malappuram &middot; Kerala &middot; India</p>
   </footer>
 
   <script>
+    // Nav scroll effect
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 60);
+    });
+
+    // Scroll reveal
     const reveals = document.querySelectorAll('.reveal');
-    const obs = new IntersectionObserver(entries => {
+    const observer = new IntersectionObserver(entries => {
       entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
     }, { threshold: 0.08 });
-    reveals.forEach(r => obs.observe(r));
+    reveals.forEach(r => observer.observe(r));
+
+    // Subtle parallax on hero image
+    window.addEventListener('scroll', () => {
+      const heroImg = document.querySelector('.hero-image, .hero-image-fallback');
+      if (heroImg) {
+        heroImg.style.transform = `translateY(${window.scrollY * 0.3}px)`;
+      }
+    });
   </script>
 </body>
 </html>
