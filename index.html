@@ -23,7 +23,6 @@ body {
   background: var(--bg);
   color: var(--text);
   font-family: 'Montserrat', sans-serif;
-  line-height: 1.6;
   overflow-x: hidden;
 }
 
@@ -35,7 +34,7 @@ nav {
   display: flex;
   justify-content: space-between;
   z-index: 100;
-  transition: all 0.4s ease;
+  transition: 0.4s;
 }
 
 nav.scrolled {
@@ -54,11 +53,6 @@ nav.scrolled {
   color: var(--soft);
   font-size: 11px;
   letter-spacing: 2px;
-  transition: 0.3s;
-}
-
-.nav-links a:hover {
-  color: var(--text);
 }
 
 /* HERO */
@@ -128,10 +122,6 @@ section {
   gap: 80px;
 }
 
-.about-img {
-  overflow: hidden;
-}
-
 .about-img img {
   width: 100%;
   transition: transform 1s ease;
@@ -145,6 +135,43 @@ section {
   font-size: 18px;
   color: var(--soft);
   margin-bottom: 24px;
+}
+
+/* SKILLS */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 24px;
+}
+
+.skill-card {
+  padding: 40px;
+  text-align: center;
+  font-size: 14px;
+  letter-spacing: 2px;
+  border: 1px solid var(--border);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s ease;
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(8px);
+}
+
+.skill-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(143,127,99,0.15);
+  opacity: 0;
+  transition: 0.4s;
+}
+
+.skill-card:hover::before {
+  opacity: 1;
+}
+
+.skill-card:hover {
+  transform: scale(1.08);
 }
 
 /* CONTACT */
@@ -161,25 +188,11 @@ section {
   border: 1px solid var(--border);
   text-decoration: none;
   color: var(--text);
-  position: relative;
-  overflow: hidden;
   transition: 0.4s;
 }
 
-.contact-card::before {
-  content:"";
-  position:absolute;
-  inset:0;
-  background: rgba(143,127,99,0.1);
-  opacity:0;
-  transition:0.4s;
-}
-
-.contact-card:hover::before {
-  opacity:1;
-}
-
 .contact-card:hover {
+  background: rgba(143,127,99,0.1);
   transform: translateY(-6px);
 }
 
@@ -191,15 +204,11 @@ footer {
   font-size:12px;
 }
 
-/* ANIMATIONS */
+/* ANIMATION */
 @keyframes fadeUp {
-  to {
-    opacity:1;
-    transform: translateY(0);
-  }
+  to { opacity:1; transform: translateY(0); }
 }
 
-/* SCROLL REVEAL */
 .reveal {
   opacity:0;
   transform: translateY(40px);
@@ -227,6 +236,7 @@ footer {
   <ul class="nav-links">
     <li><a href="#home">HOME</a></li>
     <li><a href="#about">ABOUT</a></li>
+    <li><a href="#skills">SKILLS</a></li>
     <li><a href="#contact">CONTACT</a></li>
   </ul>
 </nav>
@@ -250,9 +260,19 @@ footer {
   </div>
 </section>
 
+<section id="skills">
+  <h2 class="section-title reveal">Skills</h2>
+  <div class="skills-grid reveal">
+    <div class="skill-card">HTML</div>
+    <div class="skill-card">CSS</div>
+    <div class="skill-card">Java</div>
+    <div class="skill-card">Python</div>
+    <div class="skill-card">C Programming</div>
+  </div>
+</section>
+
 <section id="contact">
   <h2 class="section-title reveal">Contact</h2>
-
   <div class="contact-grid reveal">
     <a href="#" class="contact-card">Instagram</a>
     <a href="#" class="contact-card">Email</a>
@@ -271,7 +291,6 @@ window.addEventListener('scroll', () => {
   nav.classList.toggle('scrolled', window.scrollY > 50);
 });
 
-/* reveal */
 const reveals = document.querySelectorAll('.reveal');
 
 window.addEventListener('scroll', () => {
