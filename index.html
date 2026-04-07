@@ -19,6 +19,8 @@
 
 * { margin:0; padding:0; box-sizing:border-box; }
 
+html { scroll-behavior: smooth; }
+
 body {
   background: var(--bg);
   color: var(--text);
@@ -174,6 +176,69 @@ section {
   transform: scale(1.08);
 }
 
+/* MORE ABOUT */
+.about-extended {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 40px;
+}
+
+.about-block h3 {
+  font-family: 'EB Garamond', serif;
+  font-size: 24px;
+  margin-bottom: 12px;
+}
+
+.about-block p {
+  color: var(--soft);
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+/* PROJECTS */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+}
+
+.project-card {
+  position: relative;
+  padding: 40px;
+  border: 1px solid var(--border);
+  overflow: hidden;
+  transition: 0.4s;
+  background: rgba(255,255,255,0.12);
+  backdrop-filter: blur(8px);
+}
+
+.project-card h3 {
+  font-family: 'EB Garamond', serif;
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+.project-card p {
+  color: var(--soft);
+  font-size: 15px;
+}
+
+.project-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(143,127,99,0.15);
+  opacity: 0;
+  transition: 0.4s;
+}
+
+.project-card:hover .project-overlay {
+  opacity: 1;
+}
+
+.project-card:hover {
+  transform: translateY(-8px) scale(1.02);
+}
+
 /* CONTACT */
 .contact-grid {
   display: flex;
@@ -220,7 +285,6 @@ footer {
   transform: translateY(0);
 }
 
-/* RESPONSIVE */
 @media(max-width:900px){
   section { padding:80px 24px; }
   #about { grid-template-columns:1fr; }
@@ -237,6 +301,8 @@ footer {
     <li><a href="#home">HOME</a></li>
     <li><a href="#about">ABOUT</a></li>
     <li><a href="#skills">SKILLS</a></li>
+    <li><a href="#more-about">ABOUT+</a></li>
+    <li><a href="#projects">PROJECTS</a></li>
     <li><a href="#contact">CONTACT</a></li>
   </ul>
 </nav>
@@ -271,6 +337,68 @@ footer {
   </div>
 </section>
 
+<section id="more-about">
+  <h2 class="section-title reveal">More About Me</h2>
+  <div class="about-extended reveal">
+
+    <div class="about-block">
+      <h3>Who I Am</h3>
+      <p>I’m an aspiring entrepreneur currently studying IT engineering. My journey started early with selling problem-solving products.</p>
+    </div>
+
+    <div class="about-block">
+      <h3>What I Do</h3>
+      <p>I focus on marketing, AI tools, and Canva. I am also improving my coding skills.</p>
+    </div>
+
+    <div class="about-block">
+      <h3>Mindset</h3>
+      <p>I combine creativity with analytical thinking and believe in learning by doing.</p>
+    </div>
+
+    <div class="about-block">
+      <h3>Discipline</h3>
+      <p>I work out daily and consistently consume self-improvement content.</p>
+    </div>
+
+    <div class="about-block">
+      <h3>Experience</h3>
+      <p>I have built websites and worked on my own brand.</p>
+    </div>
+
+    <div class="about-block">
+      <h3>Vision</h3>
+      <p>My goal is to become the founder of a marketing agency.</p>
+    </div>
+
+  </div>
+</section>
+
+<section id="projects">
+  <h2 class="section-title reveal">Projects</h2>
+  <div class="projects-grid reveal">
+
+    <div class="project-card">
+      <div class="project-overlay"></div>
+      <h3>Portfolio Website</h3>
+      <p>Designed and developed a personal website with modern UI and animations.</p>
+    </div>
+
+    <div class="project-card">
+      <div class="project-overlay"></div>
+      <h3>Brand Building</h3>
+      <p>Created and developed a personal brand with digital strategy.</p>
+    </div>
+
+    <div class="project-card">
+      <div class="project-overlay"></div>
+      <h3>Creative Design</h3>
+      <p>Designed marketing creatives using Canva.</p>
+    </div>
+
+  </div>
+</section>
+
 <section id="contact">
   <h2 class="section-title reveal">Contact</h2>
   <div class="contact-grid reveal">
@@ -286,17 +414,14 @@ footer {
 
 <script>
 const nav = document.getElementById('nav');
-
 window.addEventListener('scroll', () => {
   nav.classList.toggle('scrolled', window.scrollY > 50);
 });
 
 const reveals = document.querySelectorAll('.reveal');
-
 window.addEventListener('scroll', () => {
   reveals.forEach(el => {
-    const top = el.getBoundingClientRect().top;
-    if(top < window.innerHeight - 100){
+    if(el.getBoundingClientRect().top < window.innerHeight - 100){
       el.classList.add('active');
     }
   });
