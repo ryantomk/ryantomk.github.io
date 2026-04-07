@@ -1,145 +1,223 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Muhammed Rayan MK</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<title>Muhammed Rayan MK</title>
 
-  <style>
-    :root {
-      --bg: #b8a98a;
-      --text: #111110;
-      --soft-text: rgba(17,17,16,0.6);
-      --accent: #8f7f63;
-      --border: rgba(17,17,16,0.08);
-      --card: rgba(255,255,255,0.25);
-    }
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: 'Montserrat', sans-serif;
-    }
+<style>
+:root {
+  --bg: #b8a98a;
+  --text: #111110;
+  --soft: rgba(17,17,16,0.6);
+  --accent: #8f7f63;
+  --border: rgba(17,17,16,0.08);
+}
 
-    nav {
-      position: fixed;
-      width: 100%;
-      padding: 20px 40px;
-      display: flex;
-      justify-content: space-between;
-      background: transparent;
-      z-index: 10;
-    }
+* { margin:0; padding:0; box-sizing:border-box; }
 
-    nav.scrolled {
-      background: rgba(255,255,255,0.4);
-      backdrop-filter: blur(10px);
-    }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Montserrat', sans-serif;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
 
-    .nav-links { display: flex; gap: 20px; list-style: none; }
-    .nav-links a {
-      text-decoration: none;
-      color: var(--soft-text);
-      font-size: 12px;
-      letter-spacing: 2px;
-    }
+/* NAV */
+nav {
+  position: fixed;
+  width: 100%;
+  padding: 24px 60px;
+  display: flex;
+  justify-content: space-between;
+  z-index: 100;
+  transition: all 0.4s ease;
+}
 
-    /* HERO */
-    #home {
-      height: 100vh;
-      display: flex;
-      align-items: flex-end;
-      justify-content: center;
-      text-align: center;
-      padding-bottom: 80px;
-      position: relative;
-    }
+nav.scrolled {
+  background: rgba(255,255,255,0.35);
+  backdrop-filter: blur(12px);
+}
 
-    .hero-image {
-      position: absolute;
-      inset: 0;
-      background:
-        linear-gradient(to bottom,
-          rgba(184,169,138,0.05),
-          rgba(184,169,138,0.3),
-          rgba(184,169,138,0.7)
-        ),
-        url('rayanmk.png') center/cover no-repeat;
-    }
+.nav-links {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+}
 
-    h1 {
-      font-family: 'EB Garamond', serif;
-      font-size: 90px;
-    }
+.nav-links a {
+  text-decoration: none;
+  color: var(--soft);
+  font-size: 11px;
+  letter-spacing: 2px;
+  transition: 0.3s;
+}
 
-    /* SECTION */
-    section {
-      padding: 100px 40px;
-      border-top: 1px solid var(--border);
-    }
+.nav-links a:hover {
+  color: var(--text);
+}
 
-    .section-heading {
-      font-family: 'EB Garamond', serif;
-      font-size: 48px;
-      margin-bottom: 40px;
-    }
+/* HERO */
+#home {
+  height: 100vh;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 100px;
+  text-align: center;
+  position: relative;
+}
 
-    /* ABOUT */
-    #about {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 40px;
-    }
+.hero-image {
+  position: absolute;
+  inset: 0;
+  transform: scale(1.05);
+  background:
+    linear-gradient(to bottom,
+      rgba(184,169,138,0.05),
+      rgba(184,169,138,0.25),
+      rgba(184,169,138,0.7)
+    ),
+    url('rayanmk.png') center/cover no-repeat;
+  transition: transform 1.5s ease;
+}
 
-    .about-img img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
+body:hover .hero-image {
+  transform: scale(1);
+}
 
-    .about-text p {
-      font-size: 18px;
-      color: var(--soft-text);
-      margin-bottom: 20px;
-    }
+.hero-title {
+  font-family: 'EB Garamond', serif;
+  font-size: clamp(60px, 10vw, 130px);
+  letter-spacing: -2px;
+  line-height: 0.95;
+  opacity: 0;
+  transform: translateY(40px);
+  animation: fadeUp 1.2s ease forwards;
+}
 
-    /* CONTACT */
-    .contact-cards {
-      display: flex;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
+.hero-sub {
+  font-size: 11px;
+  letter-spacing: 4px;
+  margin-top: 20px;
+  color: var(--accent);
+  opacity: 0;
+  animation: fadeUp 1s 0.4s ease forwards;
+}
 
-    .contact-card {
-      padding: 30px;
-      border: 1px solid var(--border);
-      background: var(--card);
-      backdrop-filter: blur(10px);
-      text-decoration: none;
-      color: var(--text);
-      transition: 0.3s;
-    }
+/* SECTIONS */
+section {
+  padding: 120px 80px;
+  border-top: 1px solid var(--border);
+}
 
-    .contact-card:hover {
-      background: rgba(143,127,99,0.15);
-      transform: translateY(-5px);
-    }
+.section-title {
+  font-family: 'EB Garamond', serif;
+  font-size: clamp(36px,5vw,70px);
+  margin-bottom: 60px;
+}
 
-    footer {
-      padding: 30px;
-      text-align: center;
-      font-size: 12px;
-      color: var(--soft-text);
-    }
+/* ABOUT */
+#about {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+}
 
-    @media(max-width:800px){
-      #about { grid-template-columns: 1fr; }
-      h1 { font-size: 50px; }
-    }
-  </style>
+.about-img {
+  overflow: hidden;
+}
+
+.about-img img {
+  width: 100%;
+  transition: transform 1s ease;
+}
+
+.about-img:hover img {
+  transform: scale(1.05);
+}
+
+.about-text p {
+  font-size: 18px;
+  color: var(--soft);
+  margin-bottom: 24px;
+}
+
+/* CONTACT */
+.contact-grid {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.contact-card {
+  flex: 1;
+  min-width: 200px;
+  padding: 40px;
+  border: 1px solid var(--border);
+  text-decoration: none;
+  color: var(--text);
+  position: relative;
+  overflow: hidden;
+  transition: 0.4s;
+}
+
+.contact-card::before {
+  content:"";
+  position:absolute;
+  inset:0;
+  background: rgba(143,127,99,0.1);
+  opacity:0;
+  transition:0.4s;
+}
+
+.contact-card:hover::before {
+  opacity:1;
+}
+
+.contact-card:hover {
+  transform: translateY(-6px);
+}
+
+/* FOOTER */
+footer {
+  text-align:center;
+  padding:40px;
+  color: var(--soft);
+  font-size:12px;
+}
+
+/* ANIMATIONS */
+@keyframes fadeUp {
+  to {
+    opacity:1;
+    transform: translateY(0);
+  }
+}
+
+/* SCROLL REVEAL */
+.reveal {
+  opacity:0;
+  transform: translateY(40px);
+  transition:1s ease;
+}
+
+.reveal.active {
+  opacity:1;
+  transform: translateY(0);
+}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  section { padding:80px 24px; }
+  #about { grid-template-columns:1fr; }
+  nav { padding:20px 24px; }
+}
+</style>
 </head>
 
 <body>
@@ -155,25 +233,28 @@
 
 <section id="home">
   <div class="hero-image"></div>
-  <h1>Muhammed Rayan MK</h1>
+  <div>
+    <h1 class="hero-title">Muhammed<br>Rayan MK</h1>
+    <div class="hero-sub">STUDENT · KERALA</div>
+  </div>
 </section>
 
 <section id="about">
-  <div class="about-img">
+  <div class="about-img reveal">
     <img src="rayanmk.png">
   </div>
-  <div class="about-text">
-    <h2 class="section-heading">About</h2>
-    <p>I am a student passionate about technology, digital marketing, and creativity.</p>
-    <p>I enjoy gaming, building skills, and exploring how brands grow online.</p>
+  <div class="about-text reveal">
+    <h2 class="section-title">About</h2>
+    <p>I am a student exploring technology, marketing, and creative work.</p>
+    <p>I focus on building skills that connect business and digital growth.</p>
   </div>
 </section>
 
 <section id="contact">
-  <h2 class="section-heading">Contact</h2>
+  <h2 class="section-title reveal">Contact</h2>
 
-  <div class="contact-cards">
-    <a href="https://instagram.com" class="contact-card">Instagram</a>
+  <div class="contact-grid reveal">
+    <a href="#" class="contact-card">Instagram</a>
     <a href="#" class="contact-card">Email</a>
     <a href="#" class="contact-card">WhatsApp</a>
   </div>
@@ -185,8 +266,21 @@
 
 <script>
 const nav = document.getElementById('nav');
+
 window.addEventListener('scroll', () => {
   nav.classList.toggle('scrolled', window.scrollY > 50);
+});
+
+/* reveal */
+const reveals = document.querySelectorAll('.reveal');
+
+window.addEventListener('scroll', () => {
+  reveals.forEach(el => {
+    const top = el.getBoundingClientRect().top;
+    if(top < window.innerHeight - 100){
+      el.classList.add('active');
+    }
+  });
 });
 </script>
 
