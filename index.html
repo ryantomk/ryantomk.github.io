@@ -8,12 +8,12 @@
   <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --black: #0a0a0a;
-      --white: #f2ede8;
-      --warm: #e8e0d5;
-      --accent: #c8b89a;
-      --muted: rgba(242,237,232,0.45);
-      --border: rgba(242,237,232,0.1);
+      --black: #111110;
+      --white: #e9e4dc;
+      --warm: #d6cfc4;
+      --accent: #b8a98a;
+      --muted: rgba(233,228,220,0.42);
+      --border: rgba(233,228,220,0.09);
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -59,23 +59,12 @@
       padding-bottom: 80px;
     }
 
-    /* Full-bleed image with overlay — replace bg-placeholder with your photo */
+    /* Full-bleed hero image */
     .hero-image {
       position: absolute; inset: 0;
       background:
-        linear-gradient(to bottom, rgba(10,10,10,0.15) 0%, rgba(10,10,10,0.0) 40%, rgba(10,10,10,0.55) 80%, rgba(10,10,10,0.92) 100%),
-        url('rayanmk.png') center center / cover no-repeat;
-      /* ↑ Replace '1.png' with your actual photo filename */
-    }
-    /* Fallback gradient if no image */
-    .<div class="hero-image"></div> {
-      position: absolute; inset: 0;
-      background: linear-gradient(160deg, #1a1a1a 0%, #0f0f0f 40%, #141414 100%);
-      display: flex; align-items: center; justify-content: center;
-    }
-    .<div class="hero-image"></div> p {
-      font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase;
-      color: rgba(242,237,232,0.15);
+        linear-gradient(to bottom, rgba(17,17,16,0.08) 0%, rgba(17,17,16,0.0) 35%, rgba(17,17,16,0.52) 75%, rgba(17,17,16,0.96) 100%),
+        url('rayanmk.png') center top / cover no-repeat;
     }
 
     /* Grain overlay */
@@ -312,10 +301,7 @@
 
   <!-- Hero / Home -->
   <section id="home">
-    <!-- Replace the fallback below with: <div class="hero-image"></div> once you add your photo as 1.png -->
-    <div class="hero-image-fallback">
-      <p>Add your photo as 1.png to see full image effect</p>
-    </div>
+    <div class="hero-image"></div>
     <div class="grain"></div>
 
     <div class="hero-text">
@@ -333,13 +319,8 @@
   <section id="about">
     <div class="about-left reveal">
       <div class="about-img-wrap">
-        <!-- Replace with: <img src="1.png" alt="Muhammed Rayan MK"> once you have your photo -->
-        <div class="about-img-placeholder">
-          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1">
-            <circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
-          </svg>
-          <p>Your photo here</p>
-        </div>
+        <!-- Real photo -->
+        <img src="rayanmk.png" alt="Muhammed Rayan MK">
         <div class="about-img-caption">
           <p>Malappuram, Kerala · 2025</p>
         </div>
