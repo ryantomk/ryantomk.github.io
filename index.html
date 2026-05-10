@@ -1,466 +1,744 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Muhammed Rayan MK</title>
+  <!-- ===================== SEO CORE ===================== -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+  <title>Ryanto — Digital Marketer & Content Creator | Muhammed Rayan MK</title>
 
-<style>
-:root {
-  --bg: #b8a98a;
-  --text: #111110;
-  --soft: rgba(17,17,16,0.6);
-  --accent: #8f7f63;
-  --border: rgba(17,17,16,0.08);
-}
+  <meta name="description" content="Ryanto is the personal brand of Muhammed Rayan MK — a digital marketer, content creator, and entrepreneur from Kerala, India. Specializing in Meta ads, Instagram growth strategy, and brand building.">
 
-* { margin:0; padding:0; box-sizing:border-box; }
+  <meta name="keywords" content="Ryanto, Ryanto MK, Muhammed Rayan MK, digital marketer Kerala, content creator Kerala, Instagram growth strategy, Meta ads Kerala, personal brand Kerala, Ryanto brand, rayanmk06">
 
-html { scroll-behavior: smooth; }
+  <meta name="author" content="Muhammed Rayan MK">
+  <meta name="robots" content="index, follow">
 
-body {
-  background: var(--bg);
-  color: var(--text);
-  font-family: 'Montserrat', sans-serif;
-  overflow-x: hidden;
-}
+  <link rel="canonical" href="https://ryantomk.github.io/">
 
-/* NAV */
-nav {
-  position: fixed;
-  width: 100%;
-  padding: 24px 60px;
-  display: flex;
-  justify-content: space-between;
-  z-index: 100;
-  transition: 0.4s;
-}
+  <!-- ===================== OPEN GRAPH ===================== -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ryantomk.github.io/">
+  <meta property="og:title" content="Ryanto — Digital Marketer & Content Creator | Muhammed Rayan MK">
+  <meta property="og:description" content="Ryanto is the personal brand of Muhammed Rayan MK — digital marketer, content creator, and entrepreneur from Kerala, India.">
+  <meta property="og:image" content="https://ryantomk.github.io/rayan8.png">
+  <meta property="og:site_name" content="Ryanto">
+  <meta property="og:locale" content="en_IN">
 
-nav.scrolled {
-  background: rgba(255,255,255,0.35);
-  backdrop-filter: blur(12px);
-}
+  <!-- ===================== TWITTER CARD ===================== -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Ryanto — Digital Marketer & Content Creator">
+  <meta name="twitter:description" content="Ryanto is the personal brand of Muhammed Rayan MK — digital marketer, content creator, and entrepreneur from Kerala, India.">
+  <meta name="twitter:image" content="https://ryantomk.github.io/rayan8.png">
 
-.nav-links {
-  display: flex;
-  gap: 32px;
-  list-style: none;
-}
+  <!-- ===================== STRUCTURED DATA (JSON-LD) ===================== -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Muhammed Rayan MK",
+    "alternateName": "Ryanto",
+    "url": "https://ryantomk.github.io/",
+    "image": "https://ryantomk.github.io/rayan8.png",
+    "jobTitle": "Digital Marketer & Content Creator",
+    "description": "Ryanto is the personal brand of Muhammed Rayan MK, a digital marketer and content creator from Malappuram, Kerala, India.",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Malappuram",
+      "addressRegion": "Kerala",
+      "addressCountry": "IN"
+    },
+    "sameAs": [
+      "https://instagram.com/rayanmk06",
+      "https://wa.me/917306880738"
+    ]
+  }
+  </script>
 
-.nav-links a {
-  text-decoration: none;
-  color: var(--soft);
-  font-size: 11px;
-  letter-spacing: 2px;
-}
+  <!-- ===================== FONTS ===================== -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
 
-/* HERO */
-#home {
-  height: 100vh;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  padding-bottom: 100px;
-  text-align: center;
-  position: relative;
-}
+  <style>
+    /* ── TOKENS ─────────────────────────────────────────── */
+    :root {
+      --bg:      #b8a98a;
+      --bg-deep: #a8976e;
+      --text:    #111110;
+      --soft:    rgba(17,17,16,0.58);
+      --accent:  #7a6a4e;
+      --border:  rgba(17,17,16,0.09);
+      --card-bg: rgba(255,255,255,0.13);
+      --blur:    blur(10px);
+    }
 
-.hero-image {
-  position: absolute;
-  inset: 0;
-  transform: scale(1.05);
-  background:
-    linear-gradient(to bottom,
-      rgba(184,169,138,0.05),
-      rgba(184,169,138,0.25),
-      rgba(184,169,138,0.7)
-    ),
-    url('rayan8.png') center/cover no-repeat;
-  transition: transform 1.5s ease;
-}
+    /* ── RESET ───────────────────────────────────────────── */
+    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    img  { display:block; max-width:100%; }
 
-body:hover .hero-image {
-  transform: scale(1);
-}
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Montserrat', sans-serif;
+      overflow-x: hidden;
+    }
 
-.hero-title {
-  font-family: 'EB Garamond', serif;
-  font-size: clamp(60px, 10vw, 130px);
-  letter-spacing: -2px;
-  line-height: 0.95;
-  opacity: 0;
-  transform: translateY(40px);
-  animation: fadeUp 1.2s ease forwards;
-}
+    /* ── GRAIN TEXTURE ───────────────────────────────────── */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      background-size: 200px;
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.45;
+    }
 
-.hero-sub {
-  font-size: 11px;
-  letter-spacing: 4px;
-  margin-top: 20px;
-  color: var(--accent);
-  opacity: 0;
-  animation: fadeUp 1s 0.4s ease forwards;
-}
+    /* ── NAV ─────────────────────────────────────────────── */
+    nav {
+      position: fixed;
+      width: 100%;
+      padding: 24px 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 100;
+      transition: background 0.4s, backdrop-filter 0.4s;
+    }
 
-/* SECTIONS */
-section {
-  padding: 120px 80px;
-  border-top: 1px solid var(--border);
-}
+    nav.scrolled {
+      background: rgba(184,169,138,0.55);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
 
-.section-title {
-  font-family: 'EB Garamond', serif;
-  font-size: clamp(36px,5vw,70px);
-  margin-bottom: 60px;
-}
+    .nav-logo {
+      font-family: 'EB Garamond', serif;
+      font-size: 20px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-decoration: none;
+      color: var(--text);
+    }
 
-/* ABOUT */
-#about {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
-}
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
 
-.about-img img {
-  width: 100%;
-  transition: transform 1s ease;
-}
+    .nav-links a {
+      text-decoration: none;
+      color: var(--soft);
+      font-size: 10px;
+      letter-spacing: 2.5px;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
 
-.about-img:hover img {
-  transform: scale(1.05);
-}
+    .nav-links a:hover { color: var(--text); }
 
-.about-text p {
-  font-size: 18px;
-  color: var(--soft);
-  margin-bottom: 24px;
-}
+    /* hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+    }
 
-/* SKILLS */
-.skills-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 24px;
-}
+    .hamburger span {
+      display: block;
+      width: 22px;
+      height: 1.5px;
+      background: var(--text);
+      transition: 0.3s;
+    }
 
-.skill-card {
-  padding: 40px;
-  text-align: center;
-  font-size: 14px;
-  letter-spacing: 2px;
-  border: 1px solid var(--border);
-  position: relative;
-  overflow: hidden;
-  transition: all 0.4s ease;
-  background: rgba(255,255,255,0.15);
-  backdrop-filter: blur(8px);
-}
+    /* ── HERO ────────────────────────────────────────────── */
+    #home {
+      height: 100vh;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding-bottom: 100px;
+      text-align: center;
+      position: relative;
+    }
 
-.skill-card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(143,127,99,0.15);
-  opacity: 0;
-  transition: 0.4s;
-}
+    .hero-image {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(to bottom,
+          rgba(184,169,138,0.05),
+          rgba(184,169,138,0.25),
+          rgba(184,169,138,0.75)
+        ),
+        url('rayan8.png') center/cover no-repeat;
+      transform: scale(1.05);
+      transition: transform 1.8s ease;
+    }
 
-.skill-card:hover::before {
-  opacity: 1;
-}
+    body:hover .hero-image { transform: scale(1); }
 
-.skill-card:hover {
-  transform: scale(1.08);
-}
+    .hero-content { position: relative; z-index: 2; }
 
-/* MORE ABOUT */
-.about-extended {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 40px;
-}
+    /* The SEO H1 — visually rich but semantically clean */
+    h1.hero-title {
+      font-family: 'EB Garamond', serif;
+      font-size: clamp(72px, 12vw, 150px);
+      font-weight: 500;
+      letter-spacing: -3px;
+      line-height: 0.92;
+      opacity: 0;
+      transform: translateY(40px);
+      animation: fadeUp 1.2s 0.1s ease forwards;
+    }
 
-.about-block h3 {
-  font-family: 'EB Garamond', serif;
-  font-size: 24px;
-  margin-bottom: 12px;
-}
+    .hero-brand {
+      font-style: italic;
+      color: var(--accent);
+    }
 
-.about-block p {
-  color: var(--soft);
-  font-size: 16px;
-  line-height: 1.7;
-}
+    .hero-sub {
+      font-size: 10px;
+      letter-spacing: 5px;
+      margin-top: 24px;
+      color: var(--accent);
+      opacity: 0;
+      animation: fadeUp 1s 0.5s ease forwards;
+    }
 
-/* PROJECTS */
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 30px;
-}
+    /* ── SECTIONS ────────────────────────────────────────── */
+    section {
+      padding: 120px 80px;
+      border-top: 1px solid var(--border);
+    }
 
-.project-card {
-  position: relative;
-  padding: 40px;
-  border: 1px solid var(--border);
-  overflow: hidden;
-  transition: 0.4s;
-  background: rgba(255,255,255,0.12);
-  backdrop-filter: blur(8px);
-}
+    .section-label {
+      font-size: 10px;
+      letter-spacing: 4px;
+      color: var(--soft);
+      margin-bottom: 16px;
+    }
 
-.project-card h3 {
-  font-family: 'EB Garamond', serif;
-  font-size: 22px;
-  margin-bottom: 10px;
-}
+    h2.section-title {
+      font-family: 'EB Garamond', serif;
+      font-size: clamp(38px, 5vw, 72px);
+      font-weight: 500;
+      line-height: 1;
+      margin-bottom: 60px;
+    }
 
-.project-card p {
-  color: var(--soft);
-  font-size: 15px;
-}
+    /* ── ABOUT ───────────────────────────────────────────── */
+    #about {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
 
-.project-overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(143,127,99,0.15);
-  opacity: 0;
-  transition: 0.4s;
-}
+    .about-img { overflow: hidden; }
 
-.project-card:hover .project-overlay {
-  opacity: 1;
-}
+    .about-img img {
+      width: 100%;
+      height: 560px;
+      object-fit: cover;
+      transition: transform 1.2s ease;
+    }
 
-.project-card:hover {
-  transform: translateY(-8px) scale(1.02);
-}
+    .about-img:hover img { transform: scale(1.05); }
 
-/* CONTACT */
-.contact-grid {
-  display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
-}
+    .about-text p {
+      font-size: 17px;
+      color: var(--soft);
+      line-height: 1.8;
+      margin-bottom: 22px;
+    }
 
-.contact-card {
-  flex: 1;
-  min-width: 200px;
-  padding: 40px;
-  border: 1px solid var(--border);
-  text-decoration: none;
-  color: var(--text);
-  transition: 0.4s;
-}
+    .about-text strong { color: var(--text); font-weight: 500; }
 
-.contact-card:hover {
-  background: rgba(143,127,99,0.1);
-  transform: translateY(-6px);
-}
+    /* ── SEO DESCRIPTION BLOCK (visible, crawlable) ──────── */
+    #seo-description {
+      padding: 60px 80px;
+      background: rgba(0,0,0,0.04);
+      border-top: 1px solid var(--border);
+    }
 
-/* FOOTER */
-footer {
-  text-align:center;
-  padding:40px;
-  color: var(--soft);
-  font-size:12px;
-}
+    #seo-description p {
+      max-width: 860px;
+      font-size: 16px;
+      color: var(--soft);
+      line-height: 1.9;
+    }
 
-/* ANIMATION */
-@keyframes fadeUp {
-  to { opacity:1; transform: translateY(0); }
-}
+    #seo-description strong { color: var(--text); }
 
-.reveal {
-  opacity:0;
-  transform: translateY(40px);
-  transition:1s ease;
-}
+    /* ── SKILLS ──────────────────────────────────────────── */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 20px;
+    }
 
-.reveal.active {
-  opacity:1;
-  transform: translateY(0);
-}
+    .skill-card {
+      padding: 36px 24px;
+      text-align: center;
+      font-size: 11px;
+      letter-spacing: 2.5px;
+      font-weight: 500;
+      border: 1px solid var(--border);
+      background: var(--card-bg);
+      backdrop-filter: var(--blur);
+      -webkit-backdrop-filter: var(--blur);
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      cursor: default;
+    }
 
-@media(max-width:900px){
-  section { padding:80px 24px; }
-  #about { grid-template-columns:1fr; }
-  nav { padding:20px 24px; }
-}
-</style>
+    .skill-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(122,106,78,0.12);
+      opacity: 0;
+      transition: opacity 0.4s;
+    }
+
+    .skill-card:hover { transform: scale(1.07); box-shadow: 0 12px 40px rgba(0,0,0,0.08); }
+    .skill-card:hover::after { opacity: 1; }
+
+    /* ── MORE ABOUT GRID ─────────────────────────────────── */
+    .about-extended {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 36px;
+    }
+
+    .about-block {
+      padding: 36px 30px;
+      border: 1px solid var(--border);
+      background: var(--card-bg);
+      backdrop-filter: var(--blur);
+      transition: transform 0.4s;
+    }
+
+    .about-block:hover { transform: translateY(-6px); }
+
+    .about-block h3 {
+      font-family: 'EB Garamond', serif;
+      font-size: 22px;
+      margin-bottom: 12px;
+    }
+
+    .about-block p {
+      color: var(--soft);
+      font-size: 15px;
+      line-height: 1.75;
+    }
+
+    /* ── PROJECTS ────────────────────────────────────────── */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 28px;
+    }
+
+    .project-card {
+      padding: 40px;
+      border: 1px solid var(--border);
+      background: var(--card-bg);
+      backdrop-filter: var(--blur);
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.4s, box-shadow 0.4s;
+    }
+
+    .project-card h3 {
+      font-family: 'EB Garamond', serif;
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+
+    .project-card p {
+      color: var(--soft);
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    .project-card:hover { transform: translateY(-8px); box-shadow: 0 20px 60px rgba(0,0,0,0.1); }
+
+    /* ── CONTACT ─────────────────────────────────────────── */
+    .contact-grid {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .contact-card {
+      flex: 1;
+      min-width: 200px;
+      padding: 40px 32px;
+      border: 1px solid var(--border);
+      background: var(--card-bg);
+      backdrop-filter: var(--blur);
+      text-decoration: none;
+      color: var(--text);
+      transition: transform 0.4s, background 0.4s;
+    }
+
+    .contact-card:hover {
+      background: rgba(122,106,78,0.15);
+      transform: translateY(-6px);
+    }
+
+    .contact-card strong {
+      display: block;
+      font-size: 11px;
+      letter-spacing: 2.5px;
+      margin-bottom: 10px;
+    }
+
+    .contact-card span { font-size: 15px; color: var(--soft); }
+
+    /* ── FOOTER ──────────────────────────────────────────── */
+    footer {
+      text-align: center;
+      padding: 40px;
+      color: var(--soft);
+      font-size: 11px;
+      letter-spacing: 1px;
+      border-top: 1px solid var(--border);
+    }
+
+    footer a {
+      color: var(--soft);
+      text-decoration: none;
+    }
+
+    /* ── ANIMATIONS ──────────────────────────────────────── */
+    @keyframes fadeUp {
+      to { opacity:1; transform: translateY(0); }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(36px);
+      transition: opacity 0.9s ease, transform 0.9s ease;
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+
+    /* ── RESPONSIVE ──────────────────────────────────────── */
+    @media (max-width: 900px) {
+      nav { padding: 20px 24px; }
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+
+      section { padding: 80px 24px; }
+      #seo-description { padding: 48px 24px; }
+
+      #about {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .about-img img { height: 380px; }
+    }
+  </style>
+
 </head>
 
 <body>
 
-<nav id="nav">
-  <div>Muhammed Rayan MK</div>
+<!-- ===================== NAV ===================== -->
+<nav id="nav" role="navigation" aria-label="Main navigation">
+
+  <a class="nav-logo" href="#home" aria-label="Ryanto home">Ryanto</a>
+
   <ul class="nav-links">
     <li><a href="#home">HOME</a></li>
     <li><a href="#about">ABOUT</a></li>
     <li><a href="#skills">SKILLS</a></li>
-    <li><a href="#more-about">ABOUT+</a></li>
+    <li><a href="#more-about">MORE</a></li>
     <li><a href="#projects">PROJECTS</a></li>
     <li><a href="#contact">CONTACT</a></li>
   </ul>
+
+  <button class="hamburger" aria-label="Open menu" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </button>
+
 </nav>
 
-<section id="home">
-  <div class="hero-image"></div>
-  <div>
-    <h1 class="hero-title">Muhammed<br>Rayan MK</h1>
-    <div class="hero-sub">STUDENT · KERALA</div>
+<!-- ===================== HERO ===================== -->
+<section id="home" aria-label="Hero">
+
+  <div class="hero-image" role="img" aria-label="Muhammed Rayan MK — portrait photograph"></div>
+
+  <div class="hero-content">
+    <!-- Primary SEO H1: contains brand name "Ryanto" -->
+    <h1 class="hero-title">
+      <span class="hero-brand">Ryanto</span><br>
+      MK
+    </h1>
+    <p class="hero-sub">DIGITAL MARKETER · CONTENT CREATOR · KERALA</p>
   </div>
+
 </section>
 
-<section id="about">
+<!-- ===================== SEO DESCRIPTION BLOCK ===================== -->
+<!-- This block helps Google understand the page topic clearly -->
+<div id="seo-description" role="complementary" aria-label="About Ryanto">
+  <p>
+    <strong>Ryanto</strong> is the personal brand of <strong>Muhammed Rayan MK</strong> — a digital marketer,
+    content creator, and aspiring entrepreneur based in <strong>Malappuram, Kerala, India</strong>.
+    At <strong>Ryanto</strong>, the focus is on real-world marketing results: growing Instagram pages,
+    running high-performance Meta ad campaigns, and building brands that connect with audiences.
+    Whether you're a local business looking to grow online or a brand in need of a creative strategy,
+    <strong>Ryanto</strong> brings sharp digital thinking and hands-on execution to every project.
+  </p>
+</div>
+
+<!-- ===================== ABOUT ===================== -->
+<section id="about" aria-labelledby="about-heading">
+
   <div class="about-img reveal">
-    <img src="rmk10.png">
+    <img
+      src="rmk10.png"
+      alt="Muhammed Rayan MK — Ryanto, digital marketer from Kerala"
+      width="600"
+      height="560"
+      loading="lazy"
+    >
   </div>
 
-  <div class="about-text reveal">
-    <h2 class="section-title">About</h2>
+  <div class="about-text reveal reveal-delay-1">
+    <p class="section-label">ABOUT RYANTO</p>
+    <h2 id="about-heading" class="section-title">Who is<br>Ryanto?</h2>
 
     <p>
-      I’m an IT engineering student (S2) with a strong interest in entrepreneurship 
-      and digital growth. My focus is not just learning, but applying what I learn 
-      to real-world ideas.
+      <strong>Ryanto</strong> is the brand identity of Muhammed Rayan MK — a student, digital marketer,
+      and content creator from Kerala with a sharp eye for growth strategy and brand storytelling.
     </p>
 
     <p>
-      My journey started early — in 7th grade, I was already interested in selling 
-      products that solve real problems. That mindset still drives me today.
+      The journey started early — in 7th grade, there was already an interest in selling products that
+      solve real problems. That entrepreneurial mindset still drives every campaign and creative today.
     </p>
 
     <p>
-      I work at the intersection of <strong>marketing, AI, and design</strong>, using 
-      tools like Canva and modern digital platforms to create and test ideas. At the 
-      same time, I am actively improving my coding skills to strengthen my technical side.
+      The work at Ryanto sits at the intersection of <strong>marketing, AI tools, and design</strong> —
+      using platforms like Meta Ads Manager, Instagram, and modern content tools to help local businesses
+      grow with intention and strategy.
     </p>
 
     <p>
-      I believe in consistency, daily improvement, and learning by doing. My goal is 
-      to build something meaningful — not just follow a path, but create one.
+      The goal is simple: build something meaningful. Not just follow a path — create one.
     </p>
   </div>
+
 </section>
 
-<section id="skills">
-  <h2 class="section-title reveal">Skills</h2>
-  <div class="skills-grid reveal">
-    <div class="skill-card">HTML</div>
-    <div class="skill-card">CSS</div>
-    <div class="skill-card">Java</div>
-    <div class="skill-card">Python</div>
-    <div class="skill-card">C Programming</div>
+<!-- ===================== SKILLS ===================== -->
+<section id="skills" aria-labelledby="skills-heading">
+
+  <p class="section-label reveal">CAPABILITIES</p>
+  <h2 id="skills-heading" class="section-title reveal">Skills</h2>
+
+  <div class="skills-grid">
+    <div class="skill-card reveal reveal-delay-1">META ADS</div>
+    <div class="skill-card reveal reveal-delay-2">INSTAGRAM GROWTH</div>
+    <div class="skill-card reveal reveal-delay-3">CONTENT STRATEGY</div>
+    <div class="skill-card reveal reveal-delay-1">CANVA DESIGN</div>
+    <div class="skill-card reveal reveal-delay-2">HTML & CSS</div>
+    <div class="skill-card reveal reveal-delay-3">BRAND BUILDING</div>
+    <div class="skill-card reveal reveal-delay-1">PYTHON</div>
+    <div class="skill-card reveal reveal-delay-2">AI TOOLS</div>
   </div>
+
 </section>
 
-<section id="more-about">
-  <h2 class="section-title reveal">More About Me</h2>
-  <div class="about-extended reveal">
+<!-- ===================== MORE ABOUT ===================== -->
+<section id="more-about" aria-labelledby="more-about-heading">
 
-    <div class="about-block">
-      <h3>Who I Am</h3>
-      <p>I’m an aspiring entrepreneur currently studying IT engineering. My journey started early with selling problem-solving products.</p>
-    </div>
+  <p class="section-label reveal">DEEPER LOOK</p>
+  <h2 id="more-about-heading" class="section-title reveal">More About<br>Ryanto</h2>
 
-    <div class="about-block">
-      <h3>What I Do</h3>
-      <p>I focus on marketing, AI tools, and Canva. I am also improving my coding skills.</p>
-    </div>
+  <div class="about-extended">
 
-    <div class="about-block">
-      <h3>Mindset</h3>
-      <p>I combine creativity with analytical thinking and believe in learning by doing.</p>
-    </div>
+    <article class="about-block reveal reveal-delay-1">
+      <h3>The Brand</h3>
+      <p>Ryanto is more than a name — it's a commitment to building an authentic personal brand that stands for creative digital marketing done right.</p>
+    </article>
 
-    <div class="about-block">
+    <article class="about-block reveal reveal-delay-2">
+      <h3>The Work</h3>
+      <p>Managing social media and ad campaigns for local business clients across Kerala, with hands-on experience in Meta Ads and Instagram growth strategy.</p>
+    </article>
+
+    <article class="about-block reveal reveal-delay-3">
+      <h3>The Mindset</h3>
+      <p>Creativity backed by data. Every strategy is tested, iterated, and optimized. Learning by doing is the core philosophy.</p>
+    </article>
+
+    <article class="about-block reveal reveal-delay-1">
       <h3>Discipline</h3>
-      <p>I work out daily and consistently consume self-improvement content.</p>
-    </div>
+      <p>Daily consistency — in the gym, in study, and in content. The same discipline applied to fitness is applied to the craft of marketing.</p>
+    </article>
 
-    <div class="about-block">
+    <article class="about-block reveal reveal-delay-2">
       <h3>Experience</h3>
-      <p>I have built websites and worked on my own brand.</p>
-    </div>
+      <p>Built personal websites, managed active client brands, and developed end-to-end content calendars for growth-focused businesses in Kerala.</p>
+    </article>
 
-    <div class="about-block">
+    <article class="about-block reveal reveal-delay-3">
       <h3>Vision</h3>
-      <p>My goal is to become the founder of a marketing agency.</p>
-    </div>
+      <p>To found a full-stack marketing agency under the Ryanto brand — serving businesses across India with strategy, content, and performance marketing.</p>
+    </article>
 
   </div>
+
 </section>
 
-<section id="projects">
-  <h2 class="section-title reveal">Projects</h2>
-  <div class="projects-grid reveal">
+<!-- ===================== PROJECTS ===================== -->
+<section id="projects" aria-labelledby="projects-heading">
 
-    <div class="project-card">
-      <div class="project-overlay"></div>
+  <p class="section-label reveal">WORK</p>
+  <h2 id="projects-heading" class="section-title reveal">Projects</h2>
+
+  <div class="projects-grid">
+
+    <article class="project-card reveal reveal-delay-1">
       <h3>Portfolio Website</h3>
-      <p>Designed and developed a personal website with modern UI and animations.</p>
-    </div>
+      <p>Designed and developed this personal site from scratch — custom UI, parallax effects, grain texture, and a warm editorial aesthetic.</p>
+    </article>
 
-    <div class="project-card">
-      <div class="project-overlay"></div>
-      <h3>Brand Building</h3>
-      <p>Created and developed a personal brand with digital strategy.</p>
-    </div>
+    <article class="project-card reveal reveal-delay-2">
+      <h3>@_shakebar — Instagram Growth</h3>
+      <p>Handled Instagram strategy for a shake and snacks business in Vadakara. Implemented Reels-first strategy, geo-tagging, and a structured monthly content calendar.</p>
+    </article>
 
-    <div class="project-card">
-      <div class="project-overlay"></div>
-      <h3>Creative Design</h3>
-      <p>Designed marketing creatives using Canva.</p>
-    </div>
+    <article class="project-card reveal reveal-delay-3">
+      <h3>Ryanto Brand Identity</h3>
+      <p>Built and refined a cohesive personal brand — from name and logo to visual language and online presence, designed to stand out.</p>
+    </article>
 
-  </div>
-</section>
+    <article class="project-card reveal reveal-delay-1">
+      <h3>Meta Ad Campaigns</h3>
+      <p>Planned and executed paid Meta advertising campaigns for local business clients, focused on reach, conversions, and audience targeting.</p>
+    </article>
 
-<section id="contact">
-  <h2 class="section-title reveal">Contact</h2>
+    <article class="project-card reveal reveal-delay-2">
+      <h3>Marketing Creatives</h3>
+      <p>Designed scroll-stopping marketing visuals using Canva for social media platforms — tailored for local Kerala markets.</p>
+    </article>
 
-  <div class="contact-grid reveal">
-
-    <a href="https://instagram.com/rayanmk06" target="_blank" class="contact-card">
-      <strong>Instagram</strong><br>
-      @rayanmk06
-    </a>
-
-    <a href="mailto:m2rayan1913@gmail.com" class="contact-card">
-      <strong>Email</strong><br>
-      m2rayan1913@gmail.com
-    </a>
-
-    <a href="https://wa.me/917306880738" target="_blank" class="contact-card">
-      <strong>WhatsApp</strong><br>
-      +91 7306880738
-    </a>
+    <article class="project-card reveal reveal-delay-3">
+      <h3>Indian Consumer Research</h3>
+      <p>Authored an in-depth research paper on Indian consumer behavior, Gen Z/Millennial segmentation, and quick commerce trends relevant to Kerala marketing.</p>
+    </article>
 
   </div>
+
 </section>
 
+<!-- ===================== CONTACT ===================== -->
+<section id="contact" aria-labelledby="contact-heading">
+
+  <p class="section-label reveal">GET IN TOUCH</p>
+  <h2 id="contact-heading" class="section-title reveal">Contact<br>Ryanto</h2>
+
+  <div class="contact-grid reveal reveal-delay-1">
+
+    <a
+      href="https://instagram.com/rayanmk06"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="contact-card"
+      aria-label="Follow Ryanto on Instagram"
+    >
+      <strong>INSTAGRAM</strong>
+      <span>@rayanmk06</span>
+    </a>
+
+    <a
+      href="mailto:m2rayan1913@gmail.com"
+      class="contact-card"
+      aria-label="Email Ryanto"
+    >
+      <strong>EMAIL</strong>
+      <span>m2rayan1913@gmail.com</span>
+    </a>
+
+    <a
+      href="https://wa.me/917306880738"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="contact-card"
+      aria-label="Message Ryanto on WhatsApp"
+    >
+      <strong>WHATSAPP</strong>
+      <span>+91 7306880738</span>
+    </a>
+
+  </div>
+
+</section>
+
+<!-- ===================== FOOTER ===================== -->
 <footer>
-  © 2026 Muhammed Rayan MK
+  <p>© 2026 <a href="https://ryantomk.github.io/">Ryanto</a> — Muhammed Rayan MK · Malappuram, Kerala</p>
 </footer>
 
+<!-- ===================== JS ===================== -->
 <script>
-const nav = document.getElementById('nav');
-window.addEventListener('scroll', () => {
-  nav.classList.toggle('scrolled', window.scrollY > 50);
-});
+  /* Nav scroll */
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 50);
+  }, { passive: true });
 
-const reveals = document.querySelectorAll('.reveal');
-window.addEventListener('scroll', () => {
-  reveals.forEach(el => {
-    if(el.getBoundingClientRect().top < window.innerHeight - 100){
-      el.classList.add('active');
-    }
-  });
-});
+  /* Scroll reveal */
+  const reveals = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('active');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08 });
+
+  reveals.forEach(el => io.observe(el));
+
+  /* Mobile menu toggle */
+  function toggleMenu() {
+    const links = document.querySelector('.nav-links');
+    links.style.display = links.style.display === 'flex' ? 'none' : 'flex';
+    links.style.flexDirection = 'column';
+    links.style.position = 'absolute';
+    links.style.top = '70px';
+    links.style.right = '24px';
+    links.style.background = 'rgba(184,169,138,0.95)';
+    links.style.backdropFilter = 'blur(16px)';
+    links.style.padding = '24px';
+    links.style.gap = '20px';
+    links.style.border = '1px solid rgba(17,17,16,0.1)';
+  }
 </script>
 
 </body>
